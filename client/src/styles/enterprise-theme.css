@@ -1,0 +1,374 @@
+:root {
+  /* Enterprise Dark Theme */
+  --enterprise-bg-primary: #0B1220;
+  --enterprise-bg-secondary: #111827;
+  --enterprise-bg-card: #1E293B;
+  --enterprise-bg-surface: #334155;
+  
+  /* Accents */
+  --enterprise-accent-primary: #3B82F6;
+  --enterprise-accent-secondary: #06B6D4;
+  --enterprise-success: #22C55E;
+  --enterprise-warning: #F59E0B;
+  --enterprise-danger: #EF4444;
+  
+  /* Text */
+  --enterprise-text-primary: #F8FAFC;
+  --enterprise-text-secondary: #CBD5E1;
+  --enterprise-text-muted: #94A3B8;
+  
+  /* Borders & Effects */
+  --enterprise-border: rgba(255, 255, 255, 0.08);
+  --enterprise-border-hover: rgba(255, 255, 255, 0.12);
+  --enterprise-shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --enterprise-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --enterprise-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --enterprise-shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  
+  /* Spacing */
+  --enterprise-spacing-xs: 0.25rem;
+  --enterprise-spacing-sm: 0.5rem;
+  --enterprise-spacing-md: 1rem;
+  --enterprise-spacing-lg: 1.5rem;
+  --enterprise-spacing-xl: 2rem;
+  --enterprise-spacing-2xl: 3rem;
+  
+  /* Border Radius */
+  --enterprise-radius-sm: 8px;
+  --enterprise-radius-md: 12px;
+  --enterprise-radius-lg: 16px;
+  --enterprise-radius-xl: 20px;
+  
+  /* Transitions */
+  --enterprise-transition-fast: 150ms ease-in-out;
+  --enterprise-transition-base: 200ms ease-in-out;
+  --enterprise-transition-slow: 300ms ease-in-out;
+  
+  /* Z-Index */
+  --enterprise-z-dropdown: 1000;
+  --enterprise-z-sticky: 1020;
+  --enterprise-z-fixed: 1030;
+  --enterprise-z-modal-backdrop: 1040;
+  --enterprise-z-modal: 1050;
+  --enterprise-z-popover: 1060;
+  --enterprise-z-tooltip: 1070;
+}
+
+/* Enterprise Base Styles */
+.enterprise-theme {
+  background-color: var(--enterprise-bg-primary);
+  color: var(--enterprise-text-primary);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Enterprise Card */
+.enterprise-card {
+  background: var(--enterprise-bg-card);
+  border: 1px solid var(--enterprise-border);
+  border-radius: var(--enterprise-radius-lg);
+  box-shadow: var(--enterprise-shadow-sm);
+  transition: all var(--enterprise-transition-base);
+}
+
+.enterprise-card:hover {
+  border-color: var(--enterprise-border-hover);
+  box-shadow: var(--enterprise-shadow-md);
+}
+
+/* Enterprise Button */
+.enterprise-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--enterprise-spacing-sm) var(--enterprise-spacing-md);
+  border-radius: var(--enterprise-radius-md);
+  font-weight: 500;
+  font-size: 0.875rem;
+  transition: all var(--enterprise-transition-fast);
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+
+.enterprise-button-primary {
+  background: linear-gradient(135deg, var(--enterprise-accent-primary), var(--enterprise-accent-secondary));
+  color: white;
+}
+
+.enterprise-button-primary:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+  box-shadow: var(--enterprise-shadow-md);
+}
+
+.enterprise-button-secondary {
+  background: var(--enterprise-bg-surface);
+  color: var(--enterprise-text-primary);
+  border: 1px solid var(--enterprise-border);
+}
+
+.enterprise-button-secondary:hover {
+  background: var(--enterprise-bg-card);
+  border-color: var(--enterprise-border-hover);
+}
+
+.enterprise-button-danger {
+  background: var(--enterprise-danger);
+  color: white;
+}
+
+.enterprise-button-danger:hover {
+  opacity: 0.9;
+}
+
+/* Enterprise Input */
+.enterprise-input {
+  background: var(--enterprise-bg-secondary);
+  border: 1px solid var(--enterprise-border);
+  border-radius: var(--enterprise-radius-md);
+  padding: var(--enterprise-spacing-sm) var(--enterprise-spacing-md);
+  color: var(--enterprise-text-primary);
+  font-size: 0.875rem;
+  transition: all var(--enterprise-transition-fast);
+  width: 100%;
+}
+
+.enterprise-input:focus {
+  outline: none;
+  border-color: var(--enterprise-accent-primary);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+/* Enterprise Table */
+.enterprise-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.enterprise-table th {
+  background: var(--enterprise-bg-secondary);
+  padding: var(--enterprise-spacing-md);
+  text-align: left;
+  font-weight: 600;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--enterprise-text-muted);
+  border-bottom: 1px solid var(--enterprise-border);
+}
+
+.enterprise-table td {
+  padding: var(--enterprise-spacing-md);
+  border-bottom: 1px solid var(--enterprise-border);
+  color: var(--enterprise-text-secondary);
+}
+
+.enterprise-table tr:hover td {
+  background: var(--enterprise-bg-surface);
+}
+
+/* Enterprise Badge */
+.enterprise-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--enterprise-spacing-xs) var(--enterprise-spacing-sm);
+  border-radius: var(--enterprise-radius-sm);
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.enterprise-badge-success {
+  background: rgba(34, 197, 94, 0.1);
+  color: var(--enterprise-success);
+}
+
+.enterprise-badge-warning {
+  background: rgba(245, 158, 11, 0.1);
+  color: var(--enterprise-warning);
+}
+
+.enterprise-badge-danger {
+  background: rgba(239, 68, 68, 0.1);
+  color: var(--enterprise-danger);
+}
+
+.enterprise-badge-primary {
+  background: rgba(59, 130, 246, 0.1);
+  color: var(--enterprise-accent-primary);
+}
+
+/* Enterprise Progress Ring */
+.enterprise-progress-ring {
+  transform: rotate(-90deg);
+}
+
+.enterprise-progress-ring-circle {
+  transition: stroke-dashoffset var(--enterprise-transition-slow);
+}
+
+/* Enterprise Skeleton Loader */
+.enterprise-skeleton {
+  background: linear-gradient(
+    90deg,
+    var(--enterprise-bg-surface) 25%,
+    var(--enterprise-bg-card) 50%,
+    var(--enterprise-bg-surface) 75%
+  );
+  background-size: 200% 100%;
+  animation: enterprise-skeleton-shimmer 1.5s infinite;
+  border-radius: var(--enterprise-radius-sm);
+}
+
+@keyframes enterprise-skeleton-shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* Enterprise Scrollbar */
+.enterprise-theme ::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.enterprise-theme ::-webkit-scrollbar-track {
+  background: var(--enterprise-bg-secondary);
+}
+
+.enterprise-theme ::-webkit-scrollbar-thumb {
+  background: var(--enterprise-bg-surface);
+  border-radius: var(--enterprise-radius-sm);
+}
+
+.enterprise-theme ::-webkit-scrollbar-thumb:hover {
+  background: var(--enterprise-border-hover);
+}
+
+/* Enterprise Tooltip */
+.enterprise-tooltip {
+  position: relative;
+}
+
+.enterprise-tooltip::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: var(--enterprise-spacing-sm);
+  background: var(--enterprise-bg-surface);
+  color: var(--enterprise-text-primary);
+  font-size: 0.75rem;
+  border-radius: var(--enterprise-radius-sm);
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--enterprise-transition-fast);
+  z-index: var(--enterprise-z-tooltip);
+}
+
+.enterprise-tooltip:hover::after {
+  opacity: 1;
+}
+
+/* Enterprise Modal Backdrop */
+.enterprise-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  z-index: var(--enterprise-z-modal-backdrop);
+}
+
+/* Enterprise Drawer */
+.enterprise-drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 400px;
+  background: var(--enterprise-bg-card);
+  border-left: 1px solid var(--enterprise-border);
+  z-index: var(--enterprise-z-modal);
+  transform: translateX(100%);
+  transition: transform var(--enterprise-transition-slow);
+}
+
+.enterprise-drawer.open {
+  transform: translateX(0);
+}
+
+/* Enterprise Command Palette */
+.enterprise-command-palette {
+  position: fixed;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 600px;
+  max-width: 90vw;
+  background: var(--enterprise-bg-card);
+  border: 1px solid var(--enterprise-border);
+  border-radius: var(--enterprise-radius-lg);
+  box-shadow: var(--enterprise-shadow-xl);
+  z-index: var(--enterprise-z-modal);
+}
+
+/* Enterprise Toast */
+.enterprise-toast {
+  position: fixed;
+  bottom: var(--enterprise-spacing-lg);
+  right: var(--enterprise-spacing-lg);
+  padding: var(--enterprise-spacing-md) var(--enterprise-spacing-lg);
+  background: var(--enterprise-bg-card);
+  border: 1px solid var(--enterprise-border);
+  border-radius: var(--enterprise-radius-md);
+  box-shadow: var(--enterprise-shadow-lg);
+  z-index: var(--enterprise-z-tooltip);
+  animation: enterprise-toast-slide-in var(--enterprise-transition-base);
+}
+
+@keyframes enterprise-toast-slide-in {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Enterprise Empty State */
+.enterprise-empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--enterprise-spacing-2xl);
+  text-align: center;
+}
+
+.enterprise-empty-state-icon {
+  width: 64px;
+  height: 64px;
+  margin-bottom: var(--enterprise-spacing-lg);
+  opacity: 0.5;
+}
+
+.enterprise-empty-state-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--enterprise-text-primary);
+  margin-bottom: var(--enterprise-spacing-sm);
+}
+
+.enterprise-empty-state-description {
+  font-size: 0.875rem;
+  color: var(--enterprise-text-muted);
+  max-width: 400px;
+}
