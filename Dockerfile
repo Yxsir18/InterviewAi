@@ -13,6 +13,11 @@ RUN npm run build
 # Copy server files
 COPY server ./server
 
+# Debug: Verify server directory contents
+RUN ls -la /app
+RUN ls -la /app/server
+RUN find /app -name package.json
+
 # Install server dependencies
 WORKDIR /app/server
 RUN npm install --legacy-peer-deps --production
