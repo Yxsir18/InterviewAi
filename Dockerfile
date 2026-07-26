@@ -3,7 +3,6 @@ FROM node:18-alpine
 WORKDIR /app
 
 # Copy client files for build
-COPY client/package.json ./client/
 COPY client ./client
 
 # Build client with devDependencies
@@ -12,7 +11,6 @@ RUN npm install --legacy-peer-deps
 RUN npm run build
 
 # Copy server files
-COPY server/package.json ./server/
 COPY server ./server
 
 # Install server dependencies
