@@ -55,7 +55,7 @@ app.use(helmet({
 
 // CORS configuration
 app.use(cors({
-  origin: ['http://localhost:3000', 'http://localhost:3100', 'http://localhost:3001', process.env.CLIENT_URL],
+  origin: ['http://localhost:3000', 'http://localhost:3100', 'http://localhost:3001', process.env.CLIENT_URL, 'https://interviewai-sigma-five.vercel.app'],
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
   allowedHeaders: ['Content-Type', 'Authorization'],
