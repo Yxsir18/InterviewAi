@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "AI Interview Platform Frontend",
   "private": true,
+  "type": "module",
   "dependencies": {
     "@fontsource/inter": "^5.2.8",
     "@monaco-editor/react": "^4.7.0",
