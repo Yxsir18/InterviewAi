@@ -8,7 +8,7 @@ COPY client ./client
 # Build client with devDependencies
 WORKDIR /app/client
 RUN npm install --legacy-peer-deps
-RUN npm run build
+# RUN npm run build  # Temporarily skip to debug server issue
 
 # Copy server files
 COPY server ./server
