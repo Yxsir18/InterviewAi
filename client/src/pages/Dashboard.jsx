@@ -87,35 +87,36 @@ const Dashboard = () => {
   const weakestSkill = skills.length > 1 ? skills[skills.length - 1] : 'N/A';
 
   return (
-    <div className="space-y-6 sm:space-y-8">
-      {/* Welcome Section */}
+    <div className="space-y-8">
+      {/* Welcome Section - Premium Redesign */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        className="bg-[var(--color-bg-card)] border border-[var(--color-border)] rounded-xl p-4 sm:p-6 lg:p-8 relative overflow-hidden"
+        transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
+        className="bg-[var(--color-bg-card)] border border-[var(--color-border)] rounded-xl p-6 lg:p-8 relative overflow-hidden"
       >
-        <div className="absolute top-0 right-0 w-32 h-32 sm:w-48 sm:h-48 lg:w-64 lg:h-64 bg-[var(--color-primary-blue)]/10 rounded-full blur-3xl"></div>
+        <div className="absolute top-0 right-0 w-48 h-48 bg-[var(--color-primary-blue)]/5 rounded-full blur-3xl" />
         <div className="relative z-10">
-          <h1 className="text-xl sm:text-2xl lg:text-3xl font-bold mb-2 text-[var(--color-text-heading)]">
-            Welcome back, <span className="bg-gradient-to-r from-[var(--color-primary-blue)] to-[var(--color-secondary-cyan)] bg-clip-text text-transparent">{user?.name}</span>!
+          <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-3 text-[var(--color-text-heading)] tracking-tight">
+            Welcome back, <span className="text-[var(--color-primary-blue)]">{user?.name}</span>
           </h1>
-          <p className="text-sm sm:text-base text-[var(--color-text-muted)]">
+          <p className="text-base sm:text-lg text-[var(--color-text-muted)] font-light">
             Ready to ace your next interview? Let's continue your preparation journey.
           </p>
         </div>
       </motion.div>
 
-      {/* Stats Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+      {/* Stats Grid - Premium Redesign */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.1 }}
+          transition={{ delay: 0.1, duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
         >
           <StatCard
             label="Total Interviews"
             value={overview?.totalInterviews || 0}
-            icon={<Target className="w-5 h-5 sm:w-6 sm:h-6" />}
+            icon={<Target className="w-5 h-5" />}
             color="primary"
             trend={`${overview?.pendingInterviews || 0} pending`}
           />
@@ -124,12 +125,12 @@ const Dashboard = () => {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2 }}
+          transition={{ delay: 0.15, duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
         >
           <StatCard
             label="Average Score"
             value={`${overview?.averageScore || 0}%`}
-            icon={<Award className="w-5 h-5 sm:w-6 sm:h-6" />}
+            icon={<Award className="w-5 h-5" />}
             color="success"
             trend={`Highest: ${overview?.highestScore || 0}%`}
           />
@@ -138,12 +139,12 @@ const Dashboard = () => {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3 }}
+          transition={{ delay: 0.2, duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
         >
           <StatCard
             label="Completed"
             value={overview?.completedInterviews || 0}
-            icon={<Clock className="w-5 h-5 sm:w-6 sm:h-6" />}
+            icon={<Clock className="w-5 h-5" />}
             color="primary"
             trend="Keep it up!"
           />
@@ -152,29 +153,29 @@ const Dashboard = () => {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.4 }}
+          transition={{ delay: 0.25, duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
         >
           <StatCard
             label="Certificates"
             value={overview?.totalCertificates || 0}
-            icon={<Sparkles className="w-5 h-5 sm:w-6 sm:h-6" />}
+            icon={<Sparkles className="w-5 h-5" />}
             color="primary"
             trend={`${overview?.resumeAnalyses || 0} resume analyses`}
           />
         </motion.div>
       </div>
 
-      {/* Charts and Recent Interviews */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6">
+      {/* Charts and Recent Interviews - Premium Redesign */}
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.5 }}
-          className="lg:col-span-2 bg-[var(--color-bg-card)] border border-[var(--color-border)] rounded-xl p-4 sm:p-6"
+          transition={{ delay: 0.3, duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
+          className="lg:col-span-2 bg-[var(--color-bg-card)] border border-[var(--color-border)] rounded-xl p-6"
         >
-          <div className="flex items-center justify-between mb-4 sm:mb-6">
-            <h2 className="text-lg sm:text-xl font-semibold text-[var(--color-text-heading)]">Weekly Progress</h2>
-            <BarChart3 className="w-4 h-4 sm:w-5 sm:h-5 text-[var(--color-text-muted)]" />
+          <div className="flex items-center justify-between mb-6">
+            <h2 className="text-lg font-semibold text-[var(--color-text-heading)] tracking-tight">Weekly Progress</h2>
+            <BarChart3 className="w-5 h-5 text-[var(--color-text-muted)]" />
           </div>
           <WeeklyProgressChart />
         </motion.div>
@@ -182,30 +183,30 @@ const Dashboard = () => {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.6 }}
-          className="bg-[var(--color-bg-card)] border border-[var(--color-border)] rounded-xl p-4 sm:p-6"
+          transition={{ delay: 0.35, duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
+          className="bg-[var(--color-bg-card)] border border-[var(--color-border)] rounded-xl p-6"
         >
-          <div className="flex items-center justify-between mb-4 sm:mb-6">
-            <h2 className="text-lg sm:text-xl font-semibold text-[var(--color-text-heading)]">Skill Analysis</h2>
-            <BookOpen className="w-4 h-4 sm:w-5 sm:h-5 text-[var(--color-text-muted)]" />
+          <div className="flex items-center justify-between mb-6">
+            <h2 className="text-lg font-semibold text-[var(--color-text-heading)] tracking-tight">Skill Analysis</h2>
+            <BookOpen className="w-5 h-5 text-[var(--color-text-muted)]" />
           </div>
           <SkillAnalysis skills={skills} />
         </motion.div>
       </div>
 
-      {/* Recent Interviews & Quick Actions */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6">
+      {/* Recent Interviews & Quick Actions - Premium Redesign */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.7 }}
-          className="bg-[var(--color-bg-card)] border border-[var(--color-border)] rounded-xl p-4 sm:p-6"
+          transition={{ delay: 0.4, duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
+          className="bg-[var(--color-bg-card)] border border-[var(--color-border)] rounded-xl p-6"
         >
-          <div className="flex items-center justify-between mb-4 sm:mb-6">
-            <h2 className="text-lg sm:text-xl font-semibold text-[var(--color-text-heading)]">Recent Interviews</h2>
+          <div className="flex items-center justify-between mb-6">
+            <h2 className="text-lg font-semibold text-[var(--color-text-heading)] tracking-tight">Recent Interviews</h2>
             <button
               onClick={() => navigate('/interview/history')}
-              className="text-sm text-[var(--color-primary-blue)] hover:text-[var(--color-secondary-cyan)] transition-colors"
+              className="text-sm text-[var(--color-primary-blue)] hover:text-[var(--color-primary-blue-hover)] transition-colors duration-200 font-medium"
             >
               View All
             </button>
@@ -216,87 +217,87 @@ const Dashboard = () => {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.8 }}
-          className="bg-[var(--color-bg-card)] border border-[var(--color-border)] rounded-xl p-4 sm:p-6"
+          transition={{ delay: 0.45, duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
+          className="bg-[var(--color-bg-card)] border border-[var(--color-border)] rounded-xl p-6"
         >
-          <h2 className="text-lg sm:text-xl font-semibold text-[var(--color-text-heading)] mb-4 sm:mb-6">Quick Actions</h2>
-          <div className="space-y-3 sm:space-y-4">
+          <h2 className="text-lg font-semibold text-[var(--color-text-heading)] mb-6 tracking-tight">Quick Actions</h2>
+          <div className="space-y-3">
             <button
               onClick={() => navigate('/dashboard/interview/generator')}
-              className="w-full bg-gradient-to-r from-[var(--color-primary-blue)] to-[var(--color-secondary-cyan)] text-white font-medium px-4 sm:px-6 py-3 rounded-lg hover:shadow-lg transition-all flex items-center justify-center space-x-2 min-h-[44px]"
+              className="w-full bg-[var(--color-primary-blue)] text-white font-medium px-6 py-3 rounded-lg hover:bg-[var(--color-primary-blue-hover)] transition-all duration-200 flex items-center justify-center space-x-2 min-h-[48px] shadow-sm hover:shadow"
             >
-              <Play className="w-4 h-4 sm:w-5 sm:h-5" />
-              <span className="text-sm sm:text-base">Start New Interview</span>
+              <Play className="w-5 h-5" />
+              <span>Start New Interview</span>
             </button>
 
             <button
               onClick={() => navigate('/dashboard/interview/coding/generator')}
-              className="w-full flex items-center justify-center space-x-2 px-4 py-3 rounded-lg bg-[var(--color-hover)] border border-[var(--color-primary-blue)]/30 text-[var(--color-primary-blue)] hover:bg-[var(--color-primary-blue)]/20 transition-colors min-h-[44px]"
+              className="w-full flex items-center justify-center space-x-2 px-6 py-3 rounded-lg bg-[var(--color-surface)] border border-[var(--color-border)] text-[var(--color-text-heading)] hover:bg-[var(--color-hover)] transition-all duration-200 min-h-[48px]"
             >
-              <Code className="w-4 h-4 sm:w-5 sm:h-5" />
-              <span className="text-sm sm:text-base">Start Coding Interview</span>
+              <Code className="w-5 h-5" />
+              <span>Start Coding Interview</span>
             </button>
 
             <button
               onClick={() => navigate('/dashboard/resume/upload')}
-              className="w-full flex items-center justify-center space-x-2 px-4 py-3 rounded-lg bg-[var(--color-surface)] border border-[var(--color-border)] text-[var(--color-text-heading)] hover:bg-[var(--color-bg-card)] transition-colors min-h-[44px]"
+              className="w-full flex items-center justify-center space-x-2 px-6 py-3 rounded-lg bg-[var(--color-surface)] border border-[var(--color-border)] text-[var(--color-text-heading)] hover:bg-[var(--color-hover)] transition-all duration-200 min-h-[48px]"
             >
-              <BookOpen className="w-4 h-4 sm:w-5 sm:h-5" />
-              <span className="text-sm sm:text-base">Upload Resume</span>
+              <BookOpen className="w-5 h-5" />
+              <span>Upload Resume</span>
             </button>
 
             <button
               onClick={() => navigate('/dashboard/analytics')}
-              className="w-full flex items-center justify-center space-x-2 px-4 py-3 rounded-lg bg-[var(--color-surface)] border border-[var(--color-border)] text-[var(--color-text-heading)] hover:bg-[var(--color-bg-card)] transition-colors min-h-[44px]"
+              className="w-full flex items-center justify-center space-x-2 px-6 py-3 rounded-lg bg-[var(--color-surface)] border border-[var(--color-border)] text-[var(--color-text-heading)] hover:bg-[var(--color-hover)] transition-all duration-200 min-h-[48px]"
             >
-              <BarChart3 className="w-4 h-4 sm:w-5 sm:h-5" />
-              <span className="text-sm sm:text-base">View Analytics</span>
+              <BarChart3 className="w-5 h-5" />
+              <span>View Analytics</span>
             </button>
 
             <button
               onClick={() => navigate('/dashboard/bookmarks')}
-              className="w-full flex items-center justify-center space-x-2 px-4 py-3 rounded-lg bg-[var(--color-surface)] border border-[var(--color-border)] text-[var(--color-text-heading)] hover:bg-[var(--color-bg-card)] transition-colors min-h-[44px]"
+              className="w-full flex items-center justify-center space-x-2 px-6 py-3 rounded-lg bg-[var(--color-surface)] border border-[var(--color-border)] text-[var(--color-text-heading)] hover:bg-[var(--color-hover)] transition-all duration-200 min-h-[48px]"
             >
-              <Target className="w-4 h-4 sm:w-5 sm:h-5" />
-              <span className="text-sm sm:text-base">Review Bookmarks</span>
+              <Target className="w-5 h-5" />
+              <span>Review Bookmarks</span>
             </button>
           </div>
         </motion.div>
       </div>
 
-      {/* Improvement Suggestions */}
+      {/* Improvement Suggestions - Premium Redesign */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.9 }}
-        className="bg-[var(--color-bg-card)] border border-[var(--color-border)] rounded-xl p-4 sm:p-6"
+        transition={{ delay: 0.5, duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
+        className="bg-[var(--color-bg-card)] border border-[var(--color-border)] rounded-xl p-6"
       >
-        <h2 className="text-lg sm:text-xl font-semibold mb-3 sm:mb-4 text-[var(--color-text-heading)]">Recommended for You</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
-          <div className="p-3 sm:p-4 rounded-xl bg-[var(--color-bg-secondary)] border border-[var(--color-border)] hover:border-[var(--color-primary-blue)]/30 transition-colors cursor-pointer">
-            <h3 className="font-medium mb-2 text-sm sm:text-base text-[var(--color-text-body)]">Practice React Hooks</h3>
-            <p className="text-xs sm:text-sm text-[var(--color-text-muted)] mb-3">Focus on useEffect and custom hooks</p>
-            <div className="flex items-center text-[var(--color-primary-blue)] text-xs sm:text-sm">
+        <h2 className="text-lg font-semibold mb-6 text-[var(--color-text-heading)] tracking-tight">Recommended for You</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div className="p-4 rounded-xl bg-[var(--color-bg-secondary)] border border-[var(--color-border)] hover:border-[var(--color-primary-blue)]/30 transition-all duration-300 cursor-pointer group">
+            <h3 className="font-medium mb-2 text-sm text-[var(--color-text-body)]">Practice React Hooks</h3>
+            <p className="text-xs text-[var(--color-text-muted)] mb-4 leading-relaxed">Focus on useEffect and custom hooks</p>
+            <div className="flex items-center text-[var(--color-primary-blue)] text-xs font-medium group-hover:translate-x-1 transition-transform">
               <span>Start Practice</span>
-              <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4 ml-2" />
+              <ArrowRight className="w-3 h-3 ml-2" />
             </div>
           </div>
 
-          <div className="p-3 sm:p-4 rounded-xl bg-[var(--color-bg-secondary)] border border-[var(--color-border)] hover:border-[var(--color-primary-blue)]/30 transition-colors cursor-pointer">
-            <h3 className="font-medium mb-2 text-sm sm:text-base text-[var(--color-text-body)]">System Design Basics</h3>
-            <p className="text-xs sm:text-sm text-[var(--color-text-muted)] mb-3">Learn scalability patterns</p>
-            <div className="flex items-center text-[var(--color-primary-blue)] text-xs sm:text-sm">
+          <div className="p-4 rounded-xl bg-[var(--color-bg-secondary)] border border-[var(--color-border)] hover:border-[var(--color-primary-blue)]/30 transition-all duration-300 cursor-pointer group">
+            <h3 className="font-medium mb-2 text-sm text-[var(--color-text-body)]">System Design Basics</h3>
+            <p className="text-xs text-[var(--color-text-muted)] mb-4 leading-relaxed">Learn scalability patterns</p>
+            <div className="flex items-center text-[var(--color-primary-blue)] text-xs font-medium group-hover:translate-x-1 transition-transform">
               <span>Start Learning</span>
-              <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4 ml-2" />
+              <ArrowRight className="w-3 h-3 ml-2" />
             </div>
           </div>
 
-          <div className="p-3 sm:p-4 rounded-xl bg-[var(--color-bg-secondary)] border border-[var(--color-border)] hover:border-[var(--color-primary-blue)]/30 transition-colors cursor-pointer">
-            <h3 className="font-medium mb-2 text-sm sm:text-base text-[var(--color-text-body)]">Database Optimization</h3>
-            <p className="text-xs sm:text-sm text-[var(--color-text-muted)] mb-3">Indexing and query optimization</p>
-            <div className="flex items-center text-[var(--color-primary-blue)] text-xs sm:text-sm">
+          <div className="p-4 rounded-xl bg-[var(--color-bg-secondary)] border border-[var(--color-border)] hover:border-[var(--color-primary-blue)]/30 transition-all duration-300 cursor-pointer group">
+            <h3 className="font-medium mb-2 text-sm text-[var(--color-text-body)]">Database Optimization</h3>
+            <p className="text-xs text-[var(--color-text-muted)] mb-4 leading-relaxed">Indexing and query optimization</p>
+            <div className="flex items-center text-[var(--color-primary-blue)] text-xs font-medium group-hover:translate-x-1 transition-transform">
               <span>Start Learning</span>
-              <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4 ml-2" />
+              <ArrowRight className="w-3 h-3 ml-2" />
             </div>
           </div>
         </div>

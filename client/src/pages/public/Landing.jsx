@@ -134,122 +134,119 @@ const Landing = () => {
 
   return (
     <div className="min-h-screen">
-      {/* Hero Section */}
-      <section className="relative overflow-hidden pt-16 sm:pt-20 lg:pt-24 pb-16 sm:pb-24 lg:pb-32">
-        <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-primary-blue)]/10 via-[var(--color-secondary-cyan)]/10 to-[var(--color-accent-purple)]/10" />
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] sm:w-[800px] h-[600px] sm:h-[800px] bg-[var(--color-primary-blue)]/20 rounded-full blur-[100px] sm:blur-[120px]" />
+      {/* Hero Section - Premium Redesign */}
+      <section className="relative overflow-hidden pt-32 pb-24 sm:pt-40 sm:pb-32 lg:pt-48 lg:pb-40">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--color-primary-blue)_0%,_transparent_50%)] opacity-10" />
         
-        <div className="relative container mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-center"
-          >
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.2 }}
-              className="inline-flex items-center space-x-2 px-3 sm:px-4 py-1.5 sm:py-2 bg-[rgba(37,99,235,0.1)] border border-[rgba(37,99,235,0.2)] rounded-full mb-6 sm:mb-8"
-            >
-              <Zap className="w-4 h-4 text-[var(--color-primary-blue)]" />
-              <span className="text-xs sm:text-sm text-[var(--color-primary-blue)]">AI-Powered Interview Preparation</span>
-            </motion.div>
-
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-[var(--color-text-heading)] mb-4 sm:mb-6 leading-tight">
-              Ace Your Next Interview
-              <br />
-              <span className="bg-gradient-to-r from-[var(--color-primary-blue)] via-[var(--color-secondary-cyan)] to-[var(--color-accent-purple)] bg-clip-text text-transparent">
-                With AI
-              </span>
-            </h1>
-
-            <p className="text-base sm:text-lg lg:text-xl text-[var(--color-text-muted)] max-w-2xl mx-auto mb-8 sm:mb-10 px-4">
-              Practice with AI-powered interviews, get real-time feedback, and land your dream job. 
-              Join thousands of candidates who have transformed their interview skills.
-            </p>
-
+        <div className="relative container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-4xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4 }}
-              className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 px-4"
+              transition={{ duration: 0.8, ease: [0.4, 0, 0.2, 1] }}
+              className="text-center"
             >
-              <Link
-                to="/register"
-                className="flex items-center justify-center space-x-2 w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-[var(--color-primary-blue)] to-[var(--color-secondary-cyan)] text-white rounded-xl hover:opacity-90 transition-opacity text-base sm:text-lg font-semibold min-h-[48px]"
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 0.2, duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
+                className="inline-flex items-center space-x-2 px-4 py-2 bg-[var(--color-surface)] border border-[var(--color-border)] rounded-full mb-8"
               >
-                <span>Get Started Free</span>
-                <ArrowRight className="w-4 sm:w-5 h-4 sm:h-5" />
-              </Link>
-              <Link
-                to="/features"
-                className="flex items-center justify-center space-x-2 w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-[var(--color-surface)] border border-[var(--color-border)] text-[var(--color-text-heading)] rounded-xl hover:bg-[var(--color-hover)] transition-colors text-base sm:text-lg font-semibold min-h-[48px]"
-              >
-                <Play className="w-4 sm:w-5 h-4 sm:h-5" />
-                <span>Explore Features</span>
-              </Link>
-            </motion.div>
+                <div className="w-2 h-2 rounded-full bg-[var(--color-primary-blue)] animate-pulse" />
+                <span className="text-sm font-medium text-[var(--color-text-body)]">AI-Powered Interview Platform</span>
+              </motion.div>
 
-            {/* Trusted Technologies */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.6 }}
-              className="mt-12 sm:mt-16"
-            >
-              <p className="text-xs sm:text-sm text-[var(--color-text-muted)] mb-3 sm:mb-4">Trusted by candidates preparing for roles at</p>
-              <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 lg:gap-8 px-4">
-                {technologies.map((tech) => (
-                  <span key={tech} className="text-sm sm:text-base text-[var(--color-text-muted)] font-medium">
-                    {tech}
-                  </span>
-                ))}
-              </div>
+              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-[var(--color-text-heading)] mb-6 leading-[1.1] tracking-tight">
+                Master your next
+                <br />
+                <span className="text-[var(--color-primary-blue)]">interview</span>
+              </h1>
+
+              <p className="text-lg sm:text-xl lg:text-2xl text-[var(--color-text-muted)] max-w-2xl mx-auto mb-10 leading-relaxed font-light">
+                Practice with AI-powered interviews, get real-time feedback, and land your dream job.
+              </p>
+
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.4, duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
+                className="flex flex-col sm:flex-row items-center justify-center gap-4"
+              >
+                <Link
+                  to="/register"
+                  className="group flex items-center justify-center space-x-2 w-full sm:w-auto px-8 py-4 bg-[var(--color-primary-blue)] text-white rounded-lg hover:bg-[var(--color-primary-blue-hover)] transition-all duration-200 text-base font-semibold min-h-[52px] shadow-lg hover:shadow-xl"
+                >
+                  <span>Get Started</span>
+                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                </Link>
+                <Link
+                  to="/features"
+                  className="flex items-center justify-center space-x-2 w-full sm:w-auto px-8 py-4 bg-[var(--color-surface)] border border-[var(--color-border)] text-[var(--color-text-heading)] rounded-lg hover:bg-[var(--color-hover)] transition-all duration-200 text-base font-semibold min-h-[52px]"
+                >
+                  <span>See Features</span>
+                </Link>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.6, duration: 0.8 }}
+                className="mt-16 pt-8 border-t border-[var(--color-border)]"
+              >
+                <p className="text-sm text-[var(--color-text-muted)] mb-6 font-medium">Trusted by engineers at</p>
+                <div className="flex flex-wrap items-center justify-center gap-8 sm:gap-12 opacity-60">
+                  {['Google', 'Meta', 'Amazon', 'Microsoft', 'Apple', 'Netflix'].map((company) => (
+                    <span key={company} className="text-base sm:text-lg text-[var(--color-text-body)] font-semibold">
+                      {company}
+                    </span>
+                  ))}
+                </div>
+              </motion.div>
             </motion.div>
-          </motion.div>
+          </div>
         </div>
       </section>
 
-      {/* Platform Statistics */}
-      <section className="py-12 sm:py-16 lg:py-20 border-y border-[var(--color-border)]">
-        <div className="container mx-auto">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8">
+      {/* Platform Statistics - Premium Redesign */}
+      <section className="py-16 sm:py-20 lg:py-24 border-y border-[var(--color-border)]">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 sm:gap-12">
             {stats.map((stat, index) => (
               <motion.div
                 key={stat.label}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ delay: index * 0.1, duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
                 className="text-center"
               >
-                <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-[var(--color-text-heading)] mb-2">{stat.value}</div>
-                <div className="text-sm sm:text-base text-[var(--color-text-muted)]">{stat.label}</div>
+                <div className="text-3xl sm:text-4xl md:text-5xl font-bold text-[var(--color-text-heading)] mb-2 tracking-tight">{stat.value}</div>
+                <div className="text-sm text-[var(--color-text-muted)] font-medium">{stat.label}</div>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Features Overview */}
-      <section className="py-16 sm:py-20 lg:py-24">
-        <div className="container mx-auto">
+      {/* Features Overview - Premium Redesign */}
+      <section className="py-24 sm:py-32 lg:py-40">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-12 sm:mb-16"
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
+            className="text-center mb-16 sm:mb-20"
           >
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-[var(--color-text-heading)] mb-3 sm:mb-4">
-              Everything You Need to Succeed
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[var(--color-text-heading)] mb-4 tracking-tight">
+              Everything you need
             </h2>
-            <p className="text-base sm:text-lg lg:text-xl text-[var(--color-text-muted)] max-w-2xl mx-auto px-4">
+            <p className="text-lg sm:text-xl text-[var(--color-text-muted)] max-w-2xl mx-auto font-light">
               Comprehensive tools designed to help you master every aspect of the interview process.
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 px-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {features.map((feature, index) => {
               const Icon = feature.icon;
               return (
@@ -257,15 +254,15 @@ const Landing = () => {
                   key={feature.title}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                  className="p-4 sm:p-6 rounded-2xl bg-[var(--color-bg-card)] border border-[var(--color-border)] hover:border-[var(--color-border)] transition-colors group"
+                  viewport={{ once: true, margin: "-50px" }}
+                  transition={{ delay: index * 0.1, duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
+                  className="group p-6 rounded-xl bg-[var(--color-bg-card)] border border-[var(--color-border)] hover:border-[var(--color-border)] transition-all duration-300 hover:shadow-lg"
                 >
-                  <div className={`w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-${feature.color}-500/20 flex items-center justify-center mb-3 sm:mb-4 group-hover:scale-110 transition-transform`}>
-                    <Icon className={`w-6 h-6 sm:w-7 sm:h-7 text-${feature.color}-400`} />
+                  <div className="w-12 h-12 rounded-lg bg-[var(--color-surface)] flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                    <Icon className="w-6 h-6 text-[var(--color-primary-blue)]" />
                   </div>
-                  <h3 className="text-lg sm:text-xl font-semibold text-[var(--color-text-heading)] mb-2">{feature.title}</h3>
-                  <p className="text-sm sm:text-base text-[var(--color-text-muted)]">{feature.description}</p>
+                  <h3 className="text-lg font-semibold text-[var(--color-text-heading)] mb-2">{feature.title}</h3>
+                  <p className="text-sm text-[var(--color-text-muted)] leading-relaxed">{feature.description}</p>
                 </motion.div>
               );
             })}
@@ -488,24 +485,25 @@ const Landing = () => {
         </div>
       </section>
 
-      {/* Benefits */}
-      <section className="py-16 sm:py-20 lg:py-24">
-        <div className="container mx-auto">
+      {/* Benefits - Premium Redesign */}
+      <section className="py-24 sm:py-32 lg:py-40">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-12 sm:mb-16 px-4"
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
+            className="text-center mb-16 sm:mb-20"
           >
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-[var(--color-text-heading)] mb-3 sm:mb-4">
-              Why Choose InterviewAI?
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[var(--color-text-heading)] mb-4 tracking-tight">
+              Why InterviewAI
             </h2>
-            <p className="text-base sm:text-lg lg:text-xl text-[var(--color-text-muted)] max-w-2xl mx-auto">
+            <p className="text-lg sm:text-xl text-[var(--color-text-muted)] max-w-2xl mx-auto font-light">
               Built by interviewers, for interviewees. We know what it takes to succeed.
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 px-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {benefits.map((benefit, index) => {
               const Icon = benefit.icon;
               return (
@@ -513,15 +511,15 @@ const Landing = () => {
                   key={benefit.title}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                  className="p-4 sm:p-6 rounded-2xl bg-[var(--color-bg-card)] border border-[var(--color-border)]"
+                  viewport={{ once: true, margin: "-50px" }}
+                  transition={{ delay: index * 0.1, duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
+                  className="p-6 rounded-xl bg-[var(--color-bg-card)] border border-[var(--color-border)] hover:shadow-lg transition-all duration-300"
                 >
-                  <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-[rgba(37,99,235,0.1)] flex items-center justify-center mb-3 sm:mb-4">
-                    <Icon className="w-5 h-5 sm:w-6 sm:h-6 text-[var(--color-primary-blue)]" />
+                  <div className="w-12 h-12 rounded-lg bg-[var(--color-surface)] flex items-center justify-center mb-4">
+                    <Icon className="w-6 h-6 text-[var(--color-primary-blue)]" />
                   </div>
-                  <h3 className="text-base sm:text-lg font-semibold text-[var(--color-text-heading)] mb-2">{benefit.title}</h3>
-                  <p className="text-xs sm:text-sm text-[var(--color-text-muted)]">{benefit.description}</p>
+                  <h3 className="text-lg font-semibold text-[var(--color-text-heading)] mb-2">{benefit.title}</h3>
+                  <p className="text-sm text-[var(--color-text-muted)] leading-relaxed">{benefit.description}</p>
                 </motion.div>
               );
             })}
@@ -529,46 +527,47 @@ const Landing = () => {
         </div>
       </section>
 
-      {/* Testimonials */}
-      <section className="py-16 sm:py-20 lg:py-24 bg-gradient-to-br from-[var(--color-accent-purple)]/5 to-[var(--color-accent-pink)]/5">
-        <div className="container mx-auto">
+      {/* Testimonials - Premium Redesign */}
+      <section className="py-24 sm:py-32 lg:py-40">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-12 sm:mb-16 px-4"
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
+            className="text-center mb-16 sm:mb-20"
           >
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-[var(--color-text-heading)] mb-3 sm:mb-4">
-              Loved by Candidates
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[var(--color-text-heading)] mb-4 tracking-tight">
+              Loved by candidates
             </h2>
-            <p className="text-base sm:text-lg lg:text-xl text-[var(--color-text-muted)] max-w-2xl mx-auto">
+            <p className="text-lg sm:text-xl text-[var(--color-text-muted)] max-w-2xl mx-auto font-light">
               See what our users have to say about their experience.
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 px-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {testimonials.map((testimonial, index) => (
               <motion.div
                 key={testimonial.name}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="p-4 sm:p-6 rounded-2xl bg-[var(--color-bg-card)] border border-[var(--color-border)]"
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ delay: index * 0.1, duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
+                className="p-6 rounded-xl bg-[var(--color-bg-card)] border border-[var(--color-border)] hover:shadow-lg transition-all duration-300"
               >
-                <div className="flex items-center space-x-1 mb-3 sm:mb-4">
+                <div className="flex items-center space-x-1 mb-4">
                   {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-3 h-3 sm:w-4 sm:h-4 text-[var(--color-warning)] fill-[var(--color-warning)]" />
+                    <Star key={i} className="w-4 h-4 text-[var(--color-warning)] fill-[var(--color-warning)]" />
                   ))}
                 </div>
-                <p className="text-sm sm:text-base text-[var(--color-text-muted)] mb-4 sm:mb-6">{testimonial.content}</p>
+                <p className="text-sm text-[var(--color-text-muted)] mb-6 leading-relaxed">{testimonial.content}</p>
                 <div className="flex items-center space-x-3">
-                  <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-gradient-to-br from-[var(--color-primary-blue)] to-[var(--color-secondary-cyan)] flex items-center justify-center text-white font-semibold text-xs sm:text-sm flex-shrink-0">
+                  <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-[var(--color-primary-blue)] to-[var(--color-secondary-cyan)] flex items-center justify-center text-white font-semibold text-sm flex-shrink-0">
                     {testimonial.avatar}
                   </div>
                   <div className="min-w-0">
-                    <div className="text-[var(--color-text-heading)] font-semibold text-sm sm:text-base truncate">{testimonial.name}</div>
-                    <div className="text-xs sm:text-sm text-[var(--color-text-muted)] truncate">{testimonial.role} at {testimonial.company}</div>
+                    <div className="text-[var(--color-text-heading)] font-semibold text-sm truncate">{testimonial.name}</div>
+                    <div className="text-xs text-[var(--color-text-muted)] truncate">{testimonial.role} at {testimonial.company}</div>
                   </div>
                 </div>
               </motion.div>
@@ -577,72 +576,74 @@ const Landing = () => {
         </div>
       </section>
 
-      {/* FAQ */}
-      <section className="py-16 sm:py-20 lg:py-24">
-        <div className="container mx-auto">
+      {/* FAQ - Premium Redesign */}
+      <section className="py-24 sm:py-32 lg:py-40">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-12 sm:mb-16 px-4"
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
+            className="text-center mb-16 sm:mb-20"
           >
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-[var(--color-text-heading)] mb-3 sm:mb-4">
-              Frequently Asked Questions
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[var(--color-text-heading)] mb-4 tracking-tight">
+              Frequently asked questions
             </h2>
-            <p className="text-base sm:text-lg lg:text-xl text-[var(--color-text-muted)]">
+            <p className="text-lg sm:text-xl text-[var(--color-text-muted)] font-light">
               Got questions? We've got answers.
             </p>
           </motion.div>
 
-          <div className="max-w-3xl mx-auto px-4 space-y-3 sm:space-y-4">
+          <div className="max-w-3xl mx-auto space-y-4">
             {faqs.map((faq, index) => (
               <motion.div
                 key={faq.question}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="p-4 sm:p-6 rounded-2xl bg-[var(--color-bg-card)] border border-[var(--color-border)]"
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ delay: index * 0.05, duration: 0.4, ease: [0.4, 0, 0.2, 1] }}
+                className="p-6 rounded-xl bg-[var(--color-bg-card)] border border-[var(--color-border)] hover:shadow-md transition-all duration-300"
               >
-                <h3 className="text-base sm:text-lg font-semibold text-[var(--color-text-heading)] mb-2">{faq.question}</h3>
-                <p className="text-sm sm:text-base text-[var(--color-text-muted)]">{faq.answer}</p>
+                <h3 className="text-base font-semibold text-[var(--color-text-heading)] mb-3">{faq.question}</h3>
+                <p className="text-sm text-[var(--color-text-muted)] leading-relaxed">{faq.answer}</p>
               </motion.div>
             ))}
           </div>
 
-          <div className="text-center mt-6 sm:mt-8">
+          <div className="text-center mt-12">
             <Link
               to="/faq"
-              className="inline-flex items-center space-x-2 text-[var(--color-primary-blue)] hover:text-[var(--color-primary-blue)]/80 transition-colors"
+              className="inline-flex items-center space-x-2 text-[var(--color-primary-blue)] hover:text-[var(--color-primary-blue-hover)] transition-colors duration-200 font-medium"
             >
-              <span className="text-sm sm:text-base">View all FAQs</span>
+              <span>View all FAQs</span>
               <ChevronRight className="w-4 h-4" />
             </Link>
           </div>
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="py-16 sm:py-20 lg:py-24 bg-gradient-to-r from-[var(--color-primary-blue)]/10 to-[var(--color-secondary-cyan)]/10">
-        <div className="container mx-auto">
+      {/* CTA - Premium Redesign */}
+      <section className="py-24 sm:py-32 lg:py-40">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center px-4"
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
+            className="text-center max-w-3xl mx-auto"
           >
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-[var(--color-text-heading)] mb-4 sm:mb-6">
-              Ready to Ace Your Interview?
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[var(--color-text-heading)] mb-6 tracking-tight">
+              Ready to ace your interview?
             </h2>
-            <p className="text-base sm:text-lg lg:text-xl text-[var(--color-text-muted)] mb-8 sm:mb-10 max-w-2xl mx-auto">
+            <p className="text-lg sm:text-xl text-[var(--color-text-muted)] mb-10 font-light">
               Join thousands of candidates who have transformed their interview skills with InterviewAI.
             </p>
             <Link
               to="/register"
-              className="inline-flex items-center justify-center space-x-2 w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-[var(--color-primary-blue)] to-[var(--color-secondary-cyan)] text-white rounded-xl hover:opacity-90 transition-opacity text-base sm:text-lg font-semibold min-h-[48px]"
+              className="inline-flex items-center justify-center space-x-2 w-full sm:w-auto px-8 py-4 bg-[var(--color-primary-blue)] text-white rounded-lg hover:bg-[var(--color-primary-blue-hover)] transition-all duration-200 text-base font-semibold min-h-[52px] shadow-lg hover:shadow-xl"
             >
-              <Rocket className="w-4 sm:w-5 h-4 sm:h-5" />
-              <span>Get Started Free</span>
+              <Rocket className="w-5 h-5" />
+              <span>Get Started</span>
             </Link>
           </motion.div>
         </div>

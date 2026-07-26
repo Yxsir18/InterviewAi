@@ -232,18 +232,19 @@ const ConversationalInterview = () => {
 
   return (
     <div className="min-h-screen bg-[var(--color-bg-primary)]">
-      {/* Header */}
+      {/* Header - Premium Redesign */}
       <div className="bg-[var(--color-bg-secondary)] border-b border-[var(--color-border)] px-6 py-4">
         <div className="max-w-4xl mx-auto flex items-center justify-between">
           <div className="flex items-center space-x-4">
             <button
               onClick={() => navigate('/dashboard')}
-              className="p-2 hover:bg-[var(--color-hover)] rounded-lg transition-colors"
+              className="p-2 hover:bg-[var(--color-hover)] rounded-lg transition-all duration-200"
+              aria-label="Close interview"
             >
               <X className="w-5 h-5 text-[var(--color-text-muted)]" />
             </button>
             <div>
-              <h1 className="text-xl font-bold text-[var(--color-text-primary)]">
+              <h1 className="text-lg font-semibold text-[var(--color-text-heading)] tracking-tight">
                 {interviewInfo?.type || 'Interview'}
               </h1>
               <p className="text-sm text-[var(--color-text-muted)]">
@@ -254,19 +255,19 @@ const ConversationalInterview = () => {
 
           <div className="flex items-center space-x-4">
             {/* Timer */}
-            <div className="flex items-center space-x-2 bg-[var(--color-bg-card)] border border-[var(--color-border)] px-4 py-2 rounded-lg">
+            <div className="flex items-center space-x-2 bg-[var(--color-surface)] border border-[var(--color-border)] px-4 py-2 rounded-lg">
               <Clock className="w-4 h-4 text-[var(--color-text-muted)]" />
-              <span className="text-[var(--color-text-primary)] font-mono">{formatTime(timer)}</span>
+              <span className="text-[var(--color-text-heading)] font-mono text-sm">{formatTime(timer)}</span>
             </div>
 
             {/* Progress */}
             <div className="flex items-center space-x-2">
               <div className="w-32 h-2 bg-[var(--color-surface)] rounded-full overflow-hidden">
                 <motion.div
-                  className="h-full bg-gradient-to-r from-[var(--color-accent-primary)] to-[var(--color-accent-secondary)]"
+                  className="h-full bg-[var(--color-primary-blue)]"
                   initial={{ width: 0 }}
                   animate={{ width: `${getProgress()}%` }}
-                  transition={{ duration: 0.5 }}
+                  transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
                 />
               </div>
               <span className="text-sm text-[var(--color-text-muted)]">
@@ -277,12 +278,13 @@ const ConversationalInterview = () => {
             {/* Pause/Resume */}
             <button
               onClick={isPaused ? handleResume : handlePause}
-              className="p-2 hover:bg-[var(--color-hover)] rounded-lg transition-colors"
+              className="p-2 hover:bg-[var(--color-hover)] rounded-lg transition-all duration-200"
+              aria-label={isPaused ? 'Resume interview' : 'Pause interview'}
             >
               {isPaused ? (
                 <Play className="w-5 h-5 text-[var(--color-success)]" />
               ) : (
-                <Pause className="w-5 h-5 text-[var(--color-warning)]" />
+                <Pause className="w-5 h-5 text-[var(--color-text-muted)]" />
               )}
             </button>
 
@@ -290,23 +292,24 @@ const ConversationalInterview = () => {
             <div className="relative">
               <button
                 onClick={() => setShowMenu(!showMenu)}
-                className="p-2 hover:bg-[var(--color-hover)] rounded-lg transition-colors"
+                className="p-2 hover:bg-[var(--color-hover)] rounded-lg transition-all duration-200"
+                aria-label="Menu"
               >
                 <ChevronDown className="w-5 h-5 text-[var(--color-text-muted)]" />
               </button>
 
               {showMenu && (
-                <div className="absolute right-0 top-full mt-2 w-48 bg-[var(--color-bg-card)] border border-[var(--color-border)] rounded-lg shadow-[var(--shadow-xl)] z-10">
+                <div className="absolute right-0 top-full mt-2 w-48 bg-[var(--color-bg-card)] border border-[var(--color-border)] rounded-lg shadow-lg z-10">
                   <button
                     onClick={handleSkip}
-                    className="w-full flex items-center space-x-2 px-4 py-2 hover:bg-[var(--color-hover)] text-left text-[var(--color-text-muted)]"
+                    className="w-full flex items-center space-x-2 px-4 py-2 hover:bg-[var(--color-hover)] text-left text-[var(--color-text-muted)] transition-colors duration-200"
                   >
                     <SkipForward className="w-4 h-4" />
                     <span>Skip Question</span>
                   </button>
                   <button
                     onClick={handleEndInterview}
-                    className="w-full flex items-center space-x-2 px-4 py-2 hover:bg-[var(--color-hover)] text-left text-[var(--color-danger)]"
+                    className="w-full flex items-center space-x-2 px-4 py-2 hover:bg-[var(--color-hover)] text-left text-[var(--color-error)] transition-colors duration-200"
                   >
                     <X className="w-4 h-4" />
                     <span>End Interview</span>
@@ -318,9 +321,9 @@ const ConversationalInterview = () => {
         </div>
       </div>
 
-      {/* Conversation Area */}
+      {/* Conversation Area - Premium Redesign */}
       <div className="max-w-4xl mx-auto px-6 py-6">
-        <div className="bg-[var(--color-bg-card)] border border-[var(--color-border)] rounded-2xl overflow-hidden">
+        <div className="bg-[var(--color-bg-card)] border border-[var(--color-border)] rounded-xl overflow-hidden">
           {/* Messages */}
           <div className="h-[calc(100vh-300px)] overflow-y-auto p-6 space-y-4">
             <AnimatePresence>
@@ -335,7 +338,7 @@ const ConversationalInterview = () => {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -20 }}
-                  transition={{ duration: 0.3 }}
+                  transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
                   className={`flex ${message.role === 'candidate' ? 'justify-end' : 'justify-start'}`}
                 >
                   <div
@@ -347,14 +350,14 @@ const ConversationalInterview = () => {
                     <div
                       className={`w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 ${
                         message.role === 'candidate'
-                          ? 'bg-gradient-to-br from-[var(--color-accent-primary)] to-[var(--color-accent-secondary)]'
-                          : 'bg-gradient-to-br from-[var(--color-success)] to-teal-500'
+                          ? 'bg-[var(--color-primary-blue)]'
+                          : 'bg-[var(--color-surface)]'
                       }`}
                     >
                       {message.role === 'candidate' ? (
-                        <User className="w-5 h-5 text-[var(--color-text-heading)]" />
+                        <User className="w-5 h-5 text-white" />
                       ) : (
-                        <Bot className="w-5 h-5 text-[var(--color-text-heading)]" />
+                        <Bot className="w-5 h-5 text-[var(--color-text-muted)]" />
                       )}
                     </div>
 
@@ -365,13 +368,13 @@ const ConversationalInterview = () => {
                       }`}
                     >
                       <div
-                        className={`px-4 py-3 rounded-2xl ${
+                        className={`px-4 py-3 rounded-xl ${
                           message.role === 'candidate'
-                            ? 'bg-gradient-to-r from-[var(--color-primary-blue)] to-[var(--color-secondary-cyan)] text-[var(--color-text-heading)]'
+                            ? 'bg-[var(--color-primary-blue)] text-white'
                             : 'bg-[var(--color-surface)] text-[var(--color-text-heading)]'
                         }`}
                       >
-                        <p className="text-sm whitespace-pre-wrap">{message.content || 'No content'}</p>
+                        <p className="text-sm whitespace-pre-wrap leading-relaxed">{message.content || 'No content'}</p>
                       </div>
 
                       {/* Evaluation */}
@@ -381,7 +384,7 @@ const ConversationalInterview = () => {
                             <span>Score: {message.evaluation.score}/100</span>
                           </div>
                           {message.evaluation.feedback && (
-                            <p className="text-xs text-[var(--color-text-secondary)] mt-1">
+                            <p className="text-xs text-[var(--color-text-muted)] mt-1 leading-relaxed">
                               {message.evaluation.feedback}
                             </p>
                           )}
@@ -403,13 +406,14 @@ const ConversationalInterview = () => {
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
                 className="flex justify-start"
               >
                 <div className="flex items-center space-x-3">
-                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[var(--color-success)] to-teal-500 flex items-center justify-center">
-                    <Bot className="w-5 h-5 text-[var(--color-text-heading)]" />
+                  <div className="w-10 h-10 rounded-full bg-[var(--color-surface)] flex items-center justify-center">
+                    <Bot className="w-5 h-5 text-[var(--color-text-muted)]" />
                   </div>
-                  <div className="px-4 py-3 bg-[var(--color-surface)] rounded-2xl">
+                  <div className="px-4 py-3 bg-[var(--color-surface)] rounded-xl">
                     <div className="flex space-x-2">
                       <div className="w-2 h-2 bg-[var(--color-text-muted)] rounded-full animate-bounce" />
                       <div className="w-2 h-2 bg-[var(--color-text-muted)] rounded-full animate-bounce delay-100" />
@@ -425,10 +429,11 @@ const ConversationalInterview = () => {
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
+                transition={{ duration: 0.3 }}
                 className="flex justify-center"
               >
-                <div className="px-4 py-2 bg-[var(--color-warning)]/20 border border-[var(--color-warning)]/30 rounded-lg">
-                  <p className="text-[var(--color-warning)] text-sm">Interview Paused</p>
+                <div className="px-4 py-2 bg-[var(--color-warning)]/10 border border-[var(--color-warning)]/20 rounded-lg">
+                  <p className="text-[var(--color-warning)] text-sm font-medium">Interview Paused</p>
                 </div>
               </motion.div>
             )}
@@ -436,13 +441,14 @@ const ConversationalInterview = () => {
             <div ref={messagesEndRef} />
           </div>
 
-          {/* Input Area */}
+          {/* Input Area - Premium Redesign */}
           <div className="border-t border-[var(--color-border)] p-4">
             <div className="flex items-center space-x-4">
               <button
                 onClick={handleSkip}
                 disabled={isThinking || isPaused}
-                className="p-2 hover:bg-[var(--color-hover)] rounded-lg transition-colors disabled:opacity-50"
+                className="p-2 hover:bg-[var(--color-hover)] rounded-lg transition-all duration-200 disabled:opacity-50"
+                aria-label="Skip question"
               >
                 <SkipForward className="w-5 h-5 text-[var(--color-text-muted)]" />
               </button>
@@ -456,17 +462,19 @@ const ConversationalInterview = () => {
                   onKeyPress={(e) => e.key === 'Enter' && sendMessage()}
                   placeholder="Type your answer..."
                   disabled={isThinking || isPaused}
-                  className="w-full px-4 py-3 bg-[var(--color-bg-secondary)] border border-[var(--color-border)] rounded-xl focus:outline-none focus:border-[var(--color-accent-primary)] text-[var(--color-text-primary)] placeholder-[var(--color-text-muted)] disabled:opacity-50 transition-colors"
+                  className="w-full px-4 py-3 bg-[var(--color-bg-secondary)] border border-[var(--color-border)] rounded-lg focus:outline-none focus:border-[var(--color-primary-blue)] text-[var(--color-text-heading)] placeholder-[var(--color-text-muted)] disabled:opacity-50 transition-all duration-200 min-h-[48px]"
                 />
               </div>
 
-              <PremiumButton
+              <button
                 onClick={sendMessage}
                 disabled={!currentMessage.trim() || isThinking || isPaused}
-                icon={Send}
+                className="flex items-center justify-center space-x-2 px-6 py-3 bg-[var(--color-primary-blue)] text-white rounded-lg hover:bg-[var(--color-primary-blue-hover)] transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed min-h-[48px] shadow-sm hover:shadow"
+                aria-label="Send message"
               >
-                Send
-              </PremiumButton>
+                <Send className="w-5 h-5" />
+                <span className="font-medium">Send</span>
+              </button>
             </div>
           </div>
         </div>

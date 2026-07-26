@@ -40,48 +40,55 @@ const Navbar = () => {
 
   return (
     <nav className="sticky top-0 z-50 bg-[var(--color-navbar)]/80 backdrop-blur-xl border-b border-[var(--color-border)]">
-      <div className="container mx-auto">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 min-h-[64px]">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-2 sm:space-x-3 no-underline">
-            <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg bg-gradient-to-br from-[var(--color-primary-blue)] to-[var(--color-secondary-cyan)] flex items-center justify-center flex-shrink-0">
-              <Bot className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
+          <Link to="/" className="flex items-center space-x-3 no-underline group">
+            <div className="w-9 h-9 rounded-lg bg-[var(--color-primary-blue)] flex items-center justify-center flex-shrink-0 transition-transform group-hover:scale-105">
+              <Bot className="w-5 h-5 text-white" />
             </div>
-            <span className="text-lg sm:text-xl font-bold text-[var(--color-text-heading)]">InterviewAI</span>
+            <span className="text-lg font-semibold text-[var(--color-text-heading)] tracking-tight">InterviewAI</span>
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center space-x-6 xl:space-x-8">
+          <div className="hidden lg:flex items-center space-x-8">
             {navItems.map((item) => (
               <Link
                 key={item.name}
                 to={item.path}
-                className={`text-sm font-medium transition-colors whitespace-nowrap ${
+                className={`text-sm font-medium transition-colors duration-200 relative ${
                   location.pathname === item.path
-                    ? 'text-[var(--color-primary-blue)]'
-                    : 'text-[var(--color-text-body)] hover:text-[var(--color-text-heading)]'
+                    ? 'text-[var(--color-text-heading)'
+                    : 'text-[var(--color-text-muted)] hover:text-[var(--color-text-body)]'
                 }`}
               >
                 {item.name}
+                {location.pathname === item.path && (
+                  <motion.div
+                    layoutId="navbar-indicator"
+                    className="absolute -bottom-[21px] left-0 right-0 h-0.5 bg-[var(--color-primary-blue)]"
+                    initial={false}
+                    transition={{ type: "spring", stiffness: 500, damping: 30 }}
+                  />
+                )}
               </Link>
             ))}
           </div>
 
           {/* Desktop Auth Buttons */}
-          <div className="hidden lg:flex items-center space-x-3 sm:space-x-4">
+          <div className="hidden lg:flex items-center space-x-4">
             <ThemeSwitcher />
             <Link
               to="/login"
-              className="flex items-center space-x-2 px-3 sm:px-4 py-2 text-sm font-medium text-[var(--color-text-body)] hover:text-[var(--color-text-heading)] transition-colors min-h-[44px]"
+              className="flex items-center space-x-2 px-4 py-2 text-sm font-medium text-[var(--color-text-muted)] hover:text-[var(--color-text-heading)] transition-colors duration-200 min-h-[44px]"
             >
               <LogIn className="w-4 h-4" />
-              <span className="hidden sm:inline">Login</span>
+              <span>Sign in</span>
             </Link>
             <Link
               to="/register"
-              className="flex items-center space-x-2 px-4 sm:px-6 py-2.5 bg-gradient-to-r from-[var(--color-primary-blue)] to-[var(--color-secondary-cyan)] text-white rounded-lg hover:opacity-90 transition-opacity text-sm font-medium min-h-[44px]"
+              className="flex items-center space-x-2 px-5 py-2.5 bg-[var(--color-primary-blue)] text-white rounded-lg hover:bg-[var(--color-primary-blue-hover)] transition-all duration-200 text-sm font-medium min-h-[44px] shadow-sm hover:shadow"
             >
-              <UserPlus className="w-4 h-4" />
               <span>Get Started</span>
             </Link>
           </div>
@@ -89,10 +96,10 @@ const Navbar = () => {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="lg:hidden p-2 rounded-lg text-[var(--color-text-muted)] hover:text-[var(--color-text-heading)] hover:bg-[var(--color-hover)] transition-colors min-h-[44px] min-w-[44px] flex items-center justify-center"
+            className="lg:hidden p-2 rounded-lg text-[var(--color-text-muted)] hover:text-[var(--color-text-heading)] hover:bg-[var(--color-hover)] transition-all duration-200 min-h-[44px] min-w-[44px] flex items-center justify-center"
             aria-label="Toggle menu"
           >
-            {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
         </div>
       </div>
@@ -104,39 +111,41 @@ const Navbar = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.2, ease: [0.4, 0, 0.2, 1] }}
             className="lg:hidden bg-[var(--color-sidebar)] border-b border-[var(--color-border)] overflow-hidden"
           >
-            <div className="container mx-auto px-4 py-4 space-y-2">
+            <div className="container mx-auto px-4 py-6 space-y-1">
               {navItems.map((item) => (
                 <Link
                   key={item.name}
                   to={item.path}
                   onClick={() => setIsOpen(false)}
-                  className={`block px-4 py-3 rounded-lg text-sm font-medium transition-colors min-h-[44px] flex items-center ${
+                  className={`block px-4 py-3 rounded-lg text-sm font-medium transition-all duration-200 min-h-[48px] flex items-center ${
                     location.pathname === item.path
-                      ? 'bg-[rgba(37,99,235,0.2)] text-[var(--color-primary-blue)]'
-                      : 'text-[var(--color-text-body)] hover:bg-[var(--color-hover)] hover:text-[var(--color-text-heading)]'
+                      ? 'bg-[var(--color-surface)] text-[var(--color-text-heading)'
+                      : 'text-[var(--color-text-muted)] hover:bg-[var(--color-hover)] hover:text-[var(--color-text-body)]'
                   }`}
                 >
                   {item.name}
                 </Link>
               ))}
-              <div className="pt-4 border-t border-[var(--color-border)] space-y-2">
-                <ThemeSwitcher />
+              <div className="pt-6 mt-6 border-t border-[var(--color-border)] space-y-2">
+                <div className="px-4">
+                  <ThemeSwitcher />
+                </div>
                 <Link
                   to="/login"
                   onClick={() => setIsOpen(false)}
-                  className="flex items-center space-x-2 px-4 py-3 text-sm font-medium text-[var(--color-text-body)] hover:bg-[var(--color-hover)] rounded-lg transition-colors min-h-[44px]"
+                  className="flex items-center space-x-2 px-4 py-3 text-sm font-medium text-[var(--color-text-muted)] hover:bg-[var(--color-hover)] rounded-lg transition-all duration-200 min-h-[48px]"
                 >
                   <LogIn className="w-4 h-4" />
-                  <span>Login</span>
+                  <span>Sign in</span>
                 </Link>
                 <Link
                   to="/register"
                   onClick={() => setIsOpen(false)}
-                  className="flex items-center space-x-2 px-4 py-3 bg-gradient-to-r from-[var(--color-primary-blue)] to-[var(--color-secondary-cyan)] text-white rounded-lg text-sm font-medium min-h-[44px]"
+                  className="flex items-center justify-center space-x-2 px-4 py-3 bg-[var(--color-primary-blue)] text-white rounded-lg text-sm font-medium min-h-[48px] shadow-sm"
                 >
-                  <UserPlus className="w-4 h-4" />
                   <span>Get Started</span>
                 </Link>
               </div>

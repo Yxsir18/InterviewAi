@@ -1,95 +1,87 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
 :root {
-  /* Color Palette - Dark Mode (Default) */
-  --color-bg-primary: #020617;
-  --color-bg-secondary: #0F172A;
-  --color-bg-card: #111827;
-  --color-surface: #1E293B;
-  --color-sidebar: #0B1120;
-  --color-navbar: #111827;
+  /* Premium Color Palette - Inspired by Linear, Stripe, Vercel */
+  --color-bg-primary: #09090b;
+  --color-bg-secondary: #0c0c0e;
+  --color-bg-card: #0c0c0e;
+  --color-surface: #18181b;
+  --color-sidebar: #0c0c0e;
+  --color-navbar: #09090b;
   
-  /* Brand Colors (Consistent across themes) */
-  --color-primary-blue: #2563EB;
-  --color-primary-blue-hover: #1D4ED8;
-  --color-secondary-cyan: #06B6D4;
-  --color-accent-purple: #7C3AED;
+  /* Refined Brand Colors */
+  --color-primary-blue: #3b82f6;
+  --color-primary-blue-hover: #2563eb;
+  --color-secondary-cyan: #06b6d4;
+  --color-accent-purple: #8b5cf6;
   
-  /* Status Colors */
-  --color-success: #10B981;
-  --color-warning: #F59E0B;
-  --color-error: #EF4444;
-  --color-info: #3B82F6;
-  --color-pending: #8B5CF6;
+  /* Status Colors - More muted */
+  --color-success: #10b981;
+  --color-warning: #f59e0b;
+  --color-error: #ef4444;
+  --color-info: #3b82f6;
+  --color-pending: #8b5cf6;
   
-  /* Module Accent Colors */
-  --color-module-interviews: #06B6D4;
-  --color-module-resume: #10B981;
-  --color-module-coding: #6366F1;
-  --color-module-certificates: #EAB308;
-  --color-module-gamification: #F59E0B;
-  --color-module-analytics: #8B5CF6;
-  --color-module-notifications: #F97316;
+  /* Text Colors - Higher contrast */
+  --color-text-heading: #fafafa;
+  --color-text-body: #a1a1aa;
+  --color-text-muted: #71717a;
   
-  /* Text Colors - Dark Mode */
-  --color-text-heading: #F8FAFC;
-  --color-text-body: #CBD5E1;
-  --color-text-muted: #94A3B8;
+  /* Border & Surface - Subtle */
+  --color-border: #27272a;
+  --color-hover: #18181b;
+  --color-primary-button: #3b82f6;
+  --color-secondary-button: #18181b;
   
-  /* Other Colors - Dark Mode */
-  --color-border: #334155;
-  --color-hover: #1E293B;
-  --color-primary-button: #2563EB;
-  --color-secondary-button: #1E293B;
+  /* Typography - Inter with refined scale */
+  --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   
-  /* Typography */
-  --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  
-  --font-size-hero: clamp(2rem, 5vw, 3rem);
-  --font-size-page-title: clamp(1.5rem, 3vw, 2rem);
-  --font-size-section-title: clamp(1.25rem, 2.5vw, 1.5rem);
-  --font-size-card-title: clamp(1rem, 2vw, 1.125rem);
+  --font-size-hero: clamp(2.5rem, 6vw, 4rem);
+  --font-size-page-title: clamp(2rem, 4vw, 2.5rem);
+  --font-size-section-title: clamp(1.5rem, 3vw, 1.75rem);
+  --font-size-card-title: clamp(1.125rem, 2vw, 1.25rem);
   --font-size-body: clamp(0.875rem, 1.5vw, 0.9375rem);
   --font-size-caption: clamp(0.75rem, 1.25vw, 0.8125rem);
   
+  --font-weight-light: 300;
   --font-weight-regular: 400;
   --font-weight-medium: 500;
   --font-weight-semibold: 600;
   --font-weight-bold: 700;
   
-  --line-height-tight: 1.25;
-  --line-height-normal: 1.5;
-  --line-height-relaxed: 1.75;
+  --line-height-tight: 1.1;
+  --line-height-normal: 1.6;
+  --line-height-relaxed: 1.8;
   
-  /* Spacing */
+  /* Spacing - More generous */
   --spacing-xs: 4px;
   --spacing-sm: 8px;
-  --spacing-md: 12px;
-  --spacing-lg: 16px;
-  --spacing-xl: 24px;
-  --spacing-2xl: 32px;
-  --spacing-3xl: 48px;
-  --spacing-4xl: 64px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  --spacing-2xl: 48px;
+  --spacing-3xl: 64px;
+  --spacing-4xl: 96px;
   
-  /* Border Radius - Consistent 16px for cards */
-  --radius-sm: 4px;
+  /* Border Radius - Consistent */
+  --radius-sm: 6px;
   --radius-md: 8px;
-  --radius-lg: 12px;
-  --radius-xl: 16px;
-  --radius-2xl: 20px;
+  --radius-lg: 10px;
+  --radius-xl: 12px;
+  --radius-2xl: 16px;
   --radius-full: 9999px;
   
-  /* Shadows - Soft and subtle */
+  /* Shadows - More subtle */
   --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 2px 8px rgba(0, 0, 0, 0.1);
-  --shadow-lg: 0 8px 24px rgba(15, 23, 42, 0.08);
-  --shadow-xl: 0 12px 30px rgba(0, 0, 0, 0.45);
-  --shadow-2xl: 0 20px 40px rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+  --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
   
-  /* Transitions - Subtle and fast */
-  --transition-fast: 150ms ease;
-  --transition-normal: 200ms ease;
-  --transition-slow: 250ms ease;
+  /* Transitions - Smoother */
+  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-normal: 200ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 300ms cubic-bezier(0.4, 0, 0.2, 1);
   
   /* Z-index */
   --z-dropdown: 1000;
@@ -100,49 +92,40 @@
   --z-popover: 1060;
   --z-tooltip: 1070;
 
-  /* Responsive Breakpoints */
-  --breakpoint-xs: 320px;
-  --breakpoint-sm: 480px;
-  --breakpoint-md: 768px;
-  --breakpoint-lg: 1024px;
-  --breakpoint-xl: 1280px;
-  --breakpoint-2xl: 1440px;
-
   /* Container Widths */
-  --container-xs: 100%;
-  --container-sm: 100%;
-  --container-md: 100%;
+  --container-sm: 640px;
+  --container-md: 768px;
   --container-lg: 1024px;
   --container-xl: 1280px;
-  --container-2xl: 1400px;
+  --container-2xl: 1536px;
 }
 
 [data-theme="light"] {
-  /* Color Palette - Light Mode */
-  --color-bg-primary: #F8FAFC;
-  --color-bg-secondary: #FFFFFF;
-  --color-bg-card: #FFFFFF;
-  --color-surface: #F1F5F9;
-  --color-sidebar: #FFFFFF;
-  --color-navbar: #FFFFFF;
+  /* Color Palette - Light Mode - Premium */
+  --color-bg-primary: #fafafa;
+  --color-bg-secondary: #ffffff;
+  --color-bg-card: #ffffff;
+  --color-surface: #f4f4f5;
+  --color-sidebar: #ffffff;
+  --color-navbar: #ffffff;
   
   /* Text Colors - Light Mode */
-  --color-text-heading: #0F172A;
-  --color-text-body: #334155;
-  --color-text-muted: #64748B;
+  --color-text-heading: #09090b;
+  --color-text-body: #52525b;
+  --color-text-muted: #a1a1aa;
   
   /* Other Colors - Light Mode */
-  --color-border: #E2E8F0;
-  --color-hover: #F1F5F9;
-  --color-primary-button: #2563EB;
-  --color-secondary-button: #E0F2FE;
+  --color-border: #e4e4e7;
+  --color-hover: #f4f4f5;
+  --color-primary-button: #3b82f6;
+  --color-secondary-button: #f4f4f5;
   
   /* Shadows - Light Mode */
   --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 2px 8px rgba(15, 23, 42, 0.08);
-  --shadow-lg: 0 8px 24px rgba(15, 23, 42, 0.08);
-  --shadow-xl: 0 12px 30px rgba(15, 23, 42, 0.12);
-  --shadow-2xl: 0 20px 40px rgba(15, 23, 42, 0.15);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+  --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
 }
 
 * {
